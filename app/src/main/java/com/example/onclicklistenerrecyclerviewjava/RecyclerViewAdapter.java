@@ -25,7 +25,8 @@ public class RecyclerViewAdapter extends
     private ArrayList<String> mImageNames;
     private ArrayList<String> mImages;
 
-    RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames,
+    RecyclerViewAdapter(Context mContext,
+                        ArrayList<String> mImageNames,
                         ArrayList<String> mImages) {
         this.mContext = mContext;
         this.mImageNames = mImageNames;
@@ -36,7 +37,8 @@ public class RecyclerViewAdapter extends
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                       int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater
+                .from(parent.getContext())
                 .inflate(R.layout.layout_listitems,
                         parent,
                         false);
@@ -47,7 +49,8 @@ public class RecyclerViewAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GalleryViewHolder holder,
+                                 int position) {
 
         Glide.with(mContext)
                 .asBitmap()
