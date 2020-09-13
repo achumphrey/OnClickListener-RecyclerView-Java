@@ -25,8 +25,8 @@ public class RecyclerViewAdapter extends
     private ArrayList<String> mImageNames;
     private ArrayList<String> mImages;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames,
-                               ArrayList<String> mImages) {
+    RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames,
+                        ArrayList<String> mImages) {
         this.mContext = mContext;
         this.mImageNames = mImageNames;
         this.mImages = mImages;
@@ -40,7 +40,8 @@ public class RecyclerViewAdapter extends
                 .inflate(R.layout.layout_listitems,
                         parent,
                         false);
-        GalleryViewHolder holder = new GalleryViewHolder(view);
+        GalleryViewHolder holder;
+        holder = new GalleryViewHolder(view);
 
         return holder;
     }
@@ -63,13 +64,14 @@ public class RecyclerViewAdapter extends
         return mImageNames.size();
     }
 
-    public class GalleryViewHolder extends RecyclerView.ViewHolder{
+    class GalleryViewHolder extends RecyclerView.ViewHolder{
 
+        @SuppressWarnings("deprecation")
         CircleImageView imageView;
         TextView imageName;
         RelativeLayout parentLayout;
 
-        public GalleryViewHolder(View itemView) {
+        GalleryViewHolder(View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.images);
@@ -83,7 +85,7 @@ public class RecyclerViewAdapter extends
 
         int position;
 
-        public GalleryOnClickListener(int position) {
+        GalleryOnClickListener(int position) {
             this.position = position;
         }
 
